@@ -54,21 +54,32 @@ This exercise accompanies the lessons in Environmental Data Analytics on coding 
 8.  Label the columns of your data frame with informative titles.
 
 ```{r basics 2}
+#name is a character vector
+name <- c("Amy", "Bob", "Carl", "David")
+#score is a numeric vector
+score <- c(60,70,40,80)
+#pass is a logical vector
+pass <- score >= 50
 
+test_score <- data.frame(name, score, pass)
+
+test_score
 ```
 
 9.  QUESTION: How is this data frame different from a matrix?
 
-> Answer:
+> Answer: Matrix is homogeneous while data frame is heterogeneous. This means that matrix can only store one type of data whereas data frame can store different types of data. 
 
 10. Create a function with an if/else statement. Your function should take a **vector** of test scores and print (not return) whether a given test score is a passing grade of 50 or above (TRUE or FALSE). You will need to choose either the `if` and `else` statements or the `ifelse` statement. 
 
 11. Apply your function to the vector with test scores that you created in number 5.
 
 ```{r basics 3}
-
+#ifelse
+pass_fail <- ifelse(score >= 50, "PASS","FAIL")
+print(pass_fail)
 ```
 
 12. QUESTION: Which option of `if` and `else` vs. `ifelse` worked? Why?
 
-> Answer:
+> Answer: ‘ifelse’ would work instead of "if" and "else" because score is a vector. "Ifelse" is for vector whereas "if" and "else" is for scalar.
