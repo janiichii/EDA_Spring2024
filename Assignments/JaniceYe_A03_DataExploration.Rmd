@@ -103,6 +103,7 @@ class(neonics$Conc.1..Author.)
 
 > Answer:It is a factor because it is a categorical value instead of numeric value.
 
+
 ## Explore your data graphically (Neonics)
 
 9.  Using `geom_freqpoly`, generate a plot of the number of studies conducted by publication year.
@@ -193,3 +194,4 @@ Why is the boxplot a more effective visualization option than the violin plot in
 What type(s) of litter tend to have the highest biomass at these sites?
 
 > Answer: Needles tend to have the highest biomass at these sites.
+
