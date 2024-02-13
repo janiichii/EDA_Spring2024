@@ -104,7 +104,7 @@ aplot <-
   ggplot(NTL, aes(x = month, y = temperature_C, color = lakename)) +
   geom_boxplot() +
   theme(axis.title.x = element_blank(),
-              legend.position = "none")
+              legend.position = "top")
 
 bplot <-
   ggplot(NTL, aes(x = month, y = tp_ug, color = lakename)) +
