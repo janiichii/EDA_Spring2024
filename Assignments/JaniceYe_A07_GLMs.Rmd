@@ -142,7 +142,7 @@ summary(temp.depth.AIC)
 
 ```{r anova.model}
 #12
-temp.anova <- aov(data = NTL.LTER,
+temp.anova <- aov(data = NTL.LTER.new,
                   temperature_C ~ lakename)
 summary(temp.anova)
 
@@ -150,8 +150,7 @@ summary(temp.anova)
 
 13. Is there a significant difference in mean temperature among the lakes? Report your findings. 
 
-> Answer: There is a significant difference in mean temperature among the lakes. According to the ANOVA test, the p-value is less than 0.05, so we will reject the null hypothesis, indicating that not all lakes have equal mean temperature.
-
+> Answer: There is a significant difference in mean temperature among the lakes. According to the ANOVA test, the p-value is less than 0.05, so we will reject the null hypothesis, indicating that all lakes do not have equal mean temperature.
 
 
 14. Create a graph that depicts temperature by depth, with a separate color for each lake. Add a geom_smooth (method = "lm", se = FALSE) for each lake. Make your points 50 % transparent. Adjust your y axis limits to go from 0 to 35 degrees. Clean up your graph to make it pretty. 
@@ -181,7 +180,7 @@ TukeyHSD(temp.anova)
 
 16.From the findings above, which lakes have the same mean temperature, statistically speaking, as Peter Lake? Does any lake have a mean temperature that is statistically distinct from all the other lakes?
 
->Answer: Peter Lake and Ward Lake have the same mean temperature. The p-value of the difference in mean temperature is greater than 0.05 which means we will accept the null hypothesis that their mean temperature is statistically the same. East Long Lake and Central Long Lake has the greatest difference. All lakes are very distinct from all the other except Paul Lake, Ward Lake, and Peter Lake and Tuesday Lake, Hummingbird Lake, and East Long Lake.
+>Answer: Paul and Peter Lake have the same mean temperature. Tuesday and Hummingbird Lake also have the same temperature. Their p-value of the difference in mean temperature is greater than 0.05 which means we will accept the null hypothesis that their mean temperature is statistically the same. East Long Lake and Central Long Lake has the greatest difference. 
  
 
 17. If we were just looking at Peter Lake and Paul Lake. What's another test we might explore to see whether they have distinct mean temperatures? 
