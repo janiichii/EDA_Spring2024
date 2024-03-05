@@ -108,7 +108,7 @@ GaringerOzone <- left_join(Days, GaringerOzone_short)
 
 ```{r}
 #7
-ozone_conc <- ggplot(GaringerOzone_short,
+ozone_conc <- ggplot(GaringerOzone,
                      aes(x = Date, y = Daily.Max.8.hour.Ozone.Concentration)) +
   geom_line() +
   geom_smooth() +
@@ -144,7 +144,7 @@ ggplot(ozone.interpolation, aes(x = Date, y = Daily.Max.8.hour.Ozone.Concentrati
 
 ```{r}
 #9
-GaringerOzone.monthly <- GaringerOzone_short %>%
+GaringerOzone.monthly <- ozone.interpolation %>%
   mutate(Month = month(Date)) %>%
   mutate(Year = year(Date)) %>%
   mutate(Date = my(paste0(Month,"-",Year))) %>%
@@ -158,7 +158,7 @@ GaringerOzone.monthly <- GaringerOzone_short %>%
 
 ```{r}
 #10
-GaringerOzone.daily.ts <- ts(GaringerOzone_short$Daily.Max.8.hour.Ozone.Concentration,
+GaringerOzone.daily.ts <- ts(ozone.interpolation$Daily.Max.8.hour.Ozone.Concentration,
                    start = c(2010,1),
                    frequency = 365)
   
@@ -206,7 +206,7 @@ print(mean.monthly.ozone)
 
 14. To accompany your graph, summarize your results in context of the research question. Include output from the statistical test in parentheses at the end of your sentence. Feel free to use multiple sentences in your interpretation.
 
-> Answer: The result is that ozone concentrations has changed over the 2010s at this station. Although the graph does not really show the trend, the test shows that ozone concentration has changed. The p-value is 0.02, which is smaller than 0.05. Since the null hypothesis of smk is that the data is stationary, we will reject the null hypothesis and indicate that there is a trend. (tau = -0.163, 2-sided pvalue =0.022986).
+> Answer: The result is that ozone concentrations has changed over the 2010s at this station. Although the graph does not really show the trend, the test shows that ozone concentration has changed. The p-value is 0.02, which is smaller than 0.05. Since the null hypothesis of smk is that the data is stationary, we will reject the null hypothesis and indicate that there is a trend (tau = -0.143, 2-sided pvalue =0.046724).
 
 
 15. Subtract the seasonal component from the `GaringerOzone.monthly.ts`. Hint: Look at how we extracted the series components for the EnoDischarge on the lesson Rmd file.
@@ -231,4 +231,4 @@ Nonseasonal.trend <- Kendall::MannKendall(GaringerOzone.Nonseasonal)
 Nonseasonal.trend
 ```
 
-> Answer: The de-seasonalized version of data has a p-value of 0.004 (tau = -0.179, 2-sided pvalue = 0.0037728). Since the p-value is smaller than 0.05, we will reject the null hypothesis. Thus, there is change in data despite seasonal change. 
+> Answer: The de-seasonalized version of data has a p-value of 0.0075 (tau = -0.165, 2-sided pvalue =0.0075402). Since the p-value is smaller than 0.05, we will reject the null hypothesis. Thus, there is change in data despite seasonal change. 
