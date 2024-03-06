@@ -198,7 +198,8 @@ Monthly.Trend
 mean.monthly.ozone <- ggplot(GaringerOzone.monthly,
                              aes(x = Date, y = Mean.Ozone.Concentration)) +
   geom_point() +
-  geom_line()
+  geom_line() +
+  ylab("Ozone Concentration in ppm")
 
 print(mean.monthly.ozone)
 ```
